@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit - HairCare{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="/uploads/images/product/{{ product.image }}" alt="{{ product.name }}" class="img-fluid p-5">
+        </div>
+        <div class="col-md-7 my-auto">
+            <h3>{{ product.name }}</h3>
+            
+            <span class="product-page-price">{{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
+            <hr>
+            <p>{{ product.composants }}</p>
+            <a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+            <a href="{{ path('product_index') }}" class="btn btn-primary">Revenir à la liste</a>
+        </div>
+    </div>
+
+
+{% endblock %}

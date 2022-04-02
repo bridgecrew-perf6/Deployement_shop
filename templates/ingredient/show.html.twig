@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ingrédient - HairCare{% endblock %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{ asset('uploads/images/ingredient/' ~ ingredient.image) }}" alt="{{ ingredient.name }}" class="img-fluid p-5">
+        </div>
+        <div class="col-md-7 my-auto">
+            <h3>{{ ingredient.name }}</h3>
+            <p>
+                {{ ingredient.description }}
+            </p>
+
+             <a href="{{ path('ingredient_index') }}">Revenir à la liste</a>
+        </div>
+    </div>
+
+{% endblock %}

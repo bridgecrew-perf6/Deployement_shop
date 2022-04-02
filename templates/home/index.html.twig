@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}accueil{% endblock %}
+{% block carousel %}{% endblock %}
+{% block body %}
+
+   <!-- Three columns of text below the carousel -->
+        <div class="row pt-4 pb-4">
+            <div class="col-lg-4">
+                <img src="../img/coco.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Coco</h3>
+                <p>Conserve naturellement la formule élaborée pour toute sa durée d’utilisation.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="../img/huile.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Huile d'abyssinie</h3>
+                <p>Nourrit le cheveu par sa grande affinité avec cette huile précieuse.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="../img/capucine.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Capucine</h3>
+                <p>Apporte des anti-oxydants protecteurs et aide à éliminer l'excès de sébum.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+ <!-- START THE FEATURETTES -->
+         <hr class="featurette-divider">
+    <div class="row featurette pt-5 pb-5">
+        <div class="col-md-7">
+            <h2 class=" pt-8">Une Shampoing fait maison</h2>
+            <p>Tous les besoins chevelus peuvent être comblés grâce au shampoing HairCare fait maison.<br>Les diverses formulations naturelles répondent aux différentes problématiques des cuirs chevelus : cheveux gras, cheveux secs, démangeaisons, cuirs chevelus irrités ou cheveux colorés.<br>Les ingrédients naturels utilisés prendront soin de votre chevelure sans l’agresser.</p>
+            <p>Notre shampoing solide nettoie vos cheveux en douceur tout en permettant un démêlage facile et en respectant votre cuir chevelu. Sa mousse généreuse se rince facilement et son parfum doux va vous séduire</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ asset('img/fond.jpg') }}" class="img-fluid" alt="Un savoir-faire Français">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette pt-5 pb-5">
+        <div class="col-md-7 order-md-2">
+           <h2 class=" pt-4">Qu'est-ce qu'un shampoing solide ?</h2>
+            <p>Vous voyez ce qu'est le savon solide standard, comme le savon de Marseille ou le savon d'Alep. Le shampoing solide s'en rapproche, mais concerne le soin des cheveux. De ce fait, sa composition n'est pas similaire à celle des savons.<br>Et pour cause, les cheveux ne s'entretiennent pas de la même façon, car leurs besoins diffèrent de ceux de la peau..</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('img/shampo.jpg') }}" class="img-fluid" alt="Une boutique ouverte toute l'année">
+        </div>
+    </div>
+   <!-- Section Progress Bar -->
+
+        <div class="container pt-4 pb-4 ">
+            <div class="row pt-2">
+
+                <div class="col-md-6  competences">
+                    <h3>Avantage</h3>
+                    <hr>
+                    <p>le but d’un shampoing naturel est simplement de laver. Mais de laver sans abîmer, ce qui est moins évident que ça en à l’air  . Au contraire des shampoings chimiques pseudo-hydratants, nourrissants, 100-en-1 qui font les dégâts pour ensuite vous vendre toute la gamme de soins pour les réparer de façon superficielle. Le shampoing naturel bio doit laisser le cheveu brut et propre (sans enveloppe siliconée), prêt à absorber le sébum ou les soins apportés en extra.
+                   .....</p>
+                </div>
+                <div class="col-md-6 pt-5">
+                    <p class="m-0">une meilleure pousse de cheveux</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">beaucoup moins de lavages</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 50%"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">des cheveux plus beaux, plus doux et en meilleure santé</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">un cuir chevelu rééquilibré</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br><br><br>
+
+{% endblock %}
+

@@ -1,0 +1,29 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+    <h1>Categorie</h1>
+
+    <table class="table pt-5">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ category.name }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('uploads/images/category/' ~ category.image) }}" alt="{{ category.name }}"class="w-25"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('category_index') }}">back to list</a>
+
+
+{% endblock %}

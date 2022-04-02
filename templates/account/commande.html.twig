@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes - haircare{% endblock %}
+
+{% block body %}
+<div class="pt-1">
+    <h1>Mes commandes</h1>
+    C'est dans cet espace que vous allez pouvoir gérer toutes vos commandes.<br/>
+    <a href="{{ path('account') }}">Retour</a>
+</div>
+
+    {% if commandes|length == 0 %} <!--on regarde si l'utilisateur a des commandes-->
+        <hr>
+        <p class="text-center">
+            Vous n'avez pas encore passé de commande sur HairCare.
+        </p>
+    {% else %}
+        <table class="table mt-4">
+            <thead>
+            <tr>
+                <th scope="col">Référence</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Passée le</th>
+                <th scope="col">Produit(s)</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for commande in commandes %}
+            
+                <tr>
+                    <td><span class="badge badge-secondary bg-dark">{{ commande.reference }}</span></td>
+                    <td>
+                        {% if commande.state == 1 %}
+                            Paiement accepté
+                        {% elseif commande.state == 2 %}
+                            Préparation en cours
+                        {% elseif commande.state == 3 %}
+                            Livraison en cours
+                        {% endif %}
+                    </td>
+                    <td>{{ commande.createdAt|date('d/m/Y') }}</td>
+                    <td>{{ commande.commandeDetails|length }}</td>
+                    <td>{{ ((commande.carrierPrice + commande.getTotal) / 100)|number_format(2, ',', '.') }} €</td>
+                    <td class="text-right"><a href="{{ path('account_commande_show', { 'reference' : commande.reference }) }}">Voir ma commande</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    {% endif %}
+{% endblock %}

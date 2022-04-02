@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mes adresses - HairCare{% endblock %}
+{% block body %}
+    <a href="{{ path('account_address_add') }}"class="btn btn-primary btn-sm float-right">Ajouter une adresse</a>
+    <br><br>
+    <h1>Mes adresses</h1>
+    Vous pouvez gérer toutes vos adresses dans cet espace.<br/>
+    <a href="{{ path('account') }}">Retour</a>
+    <hr />
+    {% if app.user.addresses|length == 0 %}
+    <!-- si lutilisateur n'a pas renseigné d'adresse alors je souhaite afficher un message a mon utilisateur-->
+    <p class="text-center">
+    Vous n'avez pas d'adresses ajouter dans votre compte client. Pour ajouter
+    <a href="{{ path('account_address_add') }}">Cliquer ici</a>
+    </p>
+    {% else %}
+    <!--afficher les adresses-->
+        <div class="row">
+            {% for address in app.user.addresses %}
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ address.name }}</h5>
+                            <p class="card-text">
+                                {{ address.address }}<br/>
+                                {{ address.postal }} - {{ address.city }} - {{ address.country }}
+                            </p>
+                            <a href="{{ path('account_address_edit', {'id' : address.id }) }}">Modifier</a> | <a href="{{ path('account_address_delete', {'id' : address.id }) }}">Supprimé</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %} 
+{% endblock %}

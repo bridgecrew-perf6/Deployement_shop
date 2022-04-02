@@ -1,0 +1,32 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+    entities:
+        category:
+            # ...
+            list:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.category_images%' }
+            # ...
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.category_images%' }
+
+        product:
+            # ...
+            list:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+            # ...
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+
+        ingredient:
+            # ...
+            list:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.ingredient_images%' }
+            # ...
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.ingredient_images%' }

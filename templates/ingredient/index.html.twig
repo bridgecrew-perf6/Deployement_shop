@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ingredients{% endblock %}
+{% block body %}
+
+   
+<div class="row pb-5 pt-2">
+    {% for ingredient in ingredients %}
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div class="product-item text-center pt-3">
+                <img src="{{ asset('uploads/images/ingredient/' ~ ingredient.image) }}" class="card-img-top w-75" alt="photo principale de {{ ingredient.name }}">
+                <h5 class="card-title pt-2">{{ ingredient.name }}</h5>
+                <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}" class="btn btn-primary btn-sm text-white">Bienfait</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
