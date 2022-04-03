@@ -84,10 +84,10 @@ class CommandeDetails
 
         return $this;
     }
-
+    # pour dire a symfony qu'elle variable afficher en string
     public function __toString()
     {
-        return $this->getProduct().' x'.$this->getQuantity();
+        return $this->getProduct().' x'.$this->getQuantity();//ce que j'ai envie que ma vu me renvoi en string
     }
 
     public function getMyCommande(): ?Commande

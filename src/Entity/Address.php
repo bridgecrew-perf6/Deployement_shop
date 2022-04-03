@@ -52,7 +52,7 @@ class Address
     {
         return $this->id;
     }
-
+    # pour dire a symfony qu'elle variable afficher en string
     public function __toString()//ce que j'ai envie que ma vu me renvoi en string
     {
         return $this->getName().'[br]'.$this->getAddress().'[br]'.$this->getCity().' - '.$this->getCountry();

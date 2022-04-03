@@ -5,9 +5,7 @@ use App\Entity\Category;
 use App\Entity\Ingredient;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
-
 use Doctrine\Common\Collections\Collection;
-
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -179,10 +177,10 @@ class Product
             $this->updatedAt = new \DateTime('now');
         }
     }
-
+    # pour dire a symfony qu'elle variable afficher en string
     public function __toString()
     {
-        return $this-> getName();
+        return $this-> getName();//ce que j'ai envie que ma vu me renvoi en string
       
     }
     

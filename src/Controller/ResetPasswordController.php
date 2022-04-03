@@ -27,6 +27,7 @@ class ResetPasswordController extends AbstractController
     private $resetPasswordHelper;
     private $entityManager;
 
+    #construire la fonction et injecter (entitymanager,et resetpasswordHelper)
     public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, EntityManagerInterface $entityManager)
     {
         $this->resetPasswordHelper = $resetPasswordHelper;
@@ -37,12 +38,13 @@ class ResetPasswordController extends AbstractController
      * Display & process form to request a password reset.
      */
     #[Route('', name: 'app_forgot_password_request')]
+    //Symfony expose les données de la requête à travers un objet Request
     public function request(Request $request, MailerInterface $mailer): Response
     {
-        $form = $this->createForm(ResetPasswordRequestFormType::class);
-        $form->handleRequest($request);
+        $form = $this->createForm(ResetPasswordRequestFormType::class);//instancier le form avec la methode createform
+        $form->handleRequest($request);//générer le traitement de la saisie du formulaire
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {//si le formulaire est bien soumis est valise
             return $this->processSendingPasswordResetEmail(
                 $form->get('email')->getData(),
                 $mailer

@@ -23,7 +23,8 @@ class Carrier
     private $price;
 
     
-   
+    # pour dire a symfony qu'elle variable afficher en string
+    //ce que j'ai envie que ma vu me renvoi en string
     public function __toString()
     {
         return $this->getName().'[br]'.$this->getDescription().'[br]'.number_format(($this->getPrice() / 100), 2, ',',',').' €';

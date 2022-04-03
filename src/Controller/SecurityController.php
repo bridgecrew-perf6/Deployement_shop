@@ -12,15 +12,17 @@ class SecurityController extends AbstractController
     /**
      * @Route("/connexion", name="app_login")
      */
+    #injection de dependance:je veux que tu rentre dans ma puclic function en embarquant authenticationUtils
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        if ($this->getUser()) {//si tu arrive a avoir un utilisateur a se moment tu le return vers la page d'acceuil
+        //si tu arrive a avoir un utilisateur a se moment tu le return vers la page d'acceuil
+        if ($this->getUser()) {
              return $this->redirectToRoute('account');
         }
 
-        // get the login error if there is one
+        // obtenir l'erreur de connexion s'il y en a une
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
+        // obtenir le dernier nom d'utilisateur entré par l'utilisateur
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);

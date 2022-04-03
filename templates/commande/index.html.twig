@@ -10,13 +10,14 @@
     <hr>
     <div class="row">
         <div class="col-md-6">
+        <!--pour dire a symfony que je veux que l'action de soumission du formulaire se fasse avec une URL et avec le path on demande a twig d'aller sur order récap-->
             {% set formHtml %}
                 {{ form_start(form, {action:path('commande_recap')}) }}
                     {{ form_label(form.addresses, 'Choisissez votre adresse de livraison') }}
                     <a href="{{ path('account_address_add') }}">Ajouter une nouvelle adresse</a>
                 {{ form_end(form) }}
             {% endset %}
-
+            <!--remplacer les br pas des </br> avec formHtml et row pour dire je veux que tu m'interpete le html-->
             {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
         </div>
         <div class="col-md-6">

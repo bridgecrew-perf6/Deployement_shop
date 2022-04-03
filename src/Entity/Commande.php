@@ -197,7 +197,8 @@ class Commande
 
         return $this;
     }
-    public function __toString()
+    # pour dire a symfony qu'elle variable afficher en string
+    public function __toString()//ce que j'ai envie que ma vu me renvoi en string
     {
         return $this-> getReference();
     }

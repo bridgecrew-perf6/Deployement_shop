@@ -22,7 +22,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 class CommandeCrudController extends AbstractCrudController
 {
     private $entityManager;
-    private $crudUrlGenerator;//pour manager l'url de redirection une fois qu'on aura terminer notre methide de traitement
+    private $crudUrlGenerator;//pour manager l'url de redirection une fois qu'on aura terminer notre methode de traitement
 
   
     public function __construct(EntityManagerInterface $entityManager, CrudUrlGenerator $crudUrlGenerator)//flush ma donnée
@@ -37,11 +37,12 @@ class CommandeCrudController extends AbstractCrudController
         return Commande::class;
     }
     
+    #créer une fonction action qui va me permettre de configurer mes actions
     public function configureActions(Actions $actions): Actions
     {
         //ajouter une action custom(ajouter, editer, supprimer)
         
-        $updatePreparation = Action::new('updatePreparation', 'Préparation en cours', 'fas fa-box-open')->linkToCrudAction('updatePreparation');//faire le lien avec une methode que je vais créer dans ce controller elle s'appel updatereparationP
+        $updatePreparation = Action::new('updatePreparation', 'Préparation en cours', 'fas fa-box-open')->linkToCrudAction('updatePreparation');//faire le lien avec une methode que je vais créer dans ce controller elle s'appel updatePreparation
         $updateDelivery = Action::new('updateDelivery', 'Livraison en cours', 'fas fa-truck')->linkToCrudAction('updateDelivery');
         return $actions
         ->add('detail', $updatePreparation)
@@ -85,18 +86,19 @@ class CommandeCrudController extends AbstractCrudController
     {
         return $crud->setDefaultSort(['id' => 'DESC']);
     }
-
+    //Grace a la fonction ConfiureField j'indique a easy admin qu'elles sont les inputs que je veux afficher 
+    //et en quel format.
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
             DateTimeField::new('createdAt', 'Passée le'),
-            TextField::new('user.fullname', 'Utilisateur'),
+            TextField::new('user.fullname', 'Utilisateur'),//afficher le first nam et last name
             TextEditorField::new('delivery', 'Adresse de livraison')->onlyOnDetail(),
             MoneyField::new('total', 'Total produit')->setCurrency('EUR'),
             TextField::new('carrierName', 'Transporteur'),
             MoneyField::new('carrierPrice', 'Frais de port')->setCurrency('EUR'),
-            ChoiceField::new('state')->setChoices([
+            ChoiceField::new('state')->setChoices([//statut du paiement  
             'Non payée' => 0,
             'Payée' => 1,
             'Préparation en cours' => 2,

@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommandeCancelController extends AbstractController
 {
+    //pour envoyer les données en bdd on a besoin de entity manager
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)

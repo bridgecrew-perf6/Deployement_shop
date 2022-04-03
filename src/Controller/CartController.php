@@ -11,7 +11,7 @@ class CartController extends AbstractController
     //j'ai besoin de doctrine pour aller chercher les data de mon produits dans la bdd
     private $entityManager;
     
-    //nitialiser la fonction constructet je lui inject entityManagerInterface
+    //initialiser la fonction construct et je lui inject entityManagerInterface
 
     public function __construct(EntityManagerInterface $entityManager)
     {

@@ -10,7 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
-
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[Vich\Uploadable]
 class Category
@@ -138,8 +137,9 @@ class Category
         return $this;
         
     }
+     # pour dire a symfony qu'elle variable afficher en string
     public function __toString()
     {
-        return $this-> getName();
+        return $this-> getName();//ce que j'ai envie que ma vu me renvoi en string
     }
 }

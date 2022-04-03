@@ -149,8 +149,10 @@ class Ingredient
 
         return $this;
     }
+     # pour dire a symfony qu'elle variable afficher en string
+    
     public function __toString()
     {
-        return $this-> getName();
+        return $this-> getName();//ce que j'ai envie que ma vu me renvoi en string
     }
 }

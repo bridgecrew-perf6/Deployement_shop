@@ -33,7 +33,7 @@ class AccountAddressController extends AbstractController
      */
     public function add(Cart $cart, Request $request)
     {
-        //j'ai besoin d'un formulaire, de l'ecouter et de l'envoyer ama vue twig
+        //j'ai besoin d'un formulaire, de l'ecouter et de l'envoyer a ma vue twig
         
         $address = new Address();// créer une instance de la classe adress
         
@@ -52,9 +52,9 @@ class AccountAddressController extends AbstractController
             $this->entityManager->persist($address);
             $this->entityManager->flush();
             
-            if ($cart->get()) {//si j'ai des produit dans mon panier 
+            if ($cart->get()) {//si j'ai des produit dans mon panier etre redirigé vers commande
                 return $this->redirectToRoute('commande');
-            } else {
+            } else {//sinon etre rediriger vers account_address
                 return $this->redirectToRoute('account_address');
             }
         }
@@ -80,7 +80,7 @@ class AccountAddressController extends AbstractController
         $form = $this->createForm(AddressType::class, $address);
 
         $form->handleRequest($request);
-
+        //si le formulaire est valide et soumis
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->flush();
             return $this->redirectToRoute('account_address');
